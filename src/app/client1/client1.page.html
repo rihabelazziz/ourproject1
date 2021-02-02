@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Liste Clients"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Client Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="back">
+  <div >
+      <img src="./assets/images (1).jpg" type >
+    </div>
+    <p>
+      Ce qui me caractérise, c’est la créativité. J’ai mis cette compétence au service du marketing pendant 10 ans dans plusieurs entreprises… Mon investissement m’a par exemple permis de repositionner les produits sur un segment plus premium. À la clé, 3 % de parts de marché supplémentaires. Ma créativité, doublée d’une grande autonomie, va me permettre demain d’exceller au poste de responsable du marketing digital. 
+    </p>
+
+    <ion-button expand="full" (click)="startScan()">
+      <ion-icon slot="start" name="qr-scanner"></ion-icon>
+      Start scan
+    </ion-button>
+
+    <ion-button expand="full" (click)="reset()" color="warning" *ngIf="scanResult">
+      <ion-icon slot="start" name="ref resh"></ion-icon>
+      Reset
+    </ion-button>
+
+    <video #video [hidden]="!scanActive" width="100%"></video>
+
+    <ion-button expand="full" (click)="stopScan()" color="danger" *ngIf="scanActive">
+      <ion-icon slot="start" name="close"></ion-icon>
+      Stop scan
+    </ion-button>
+
+    <ion-card *ngIf="scanResult">
+      <ion-scan-header>
+        <ion-card-title>QR Code</ion-card-title>
+      </ion-scan-header>
+      <ion-card-content>
+        {{scanResult}}
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
